@@ -1,0 +1,255 @@
+/* Основной контейнер статей */
+.articles-container {
+    max-width: 100%;
+    padding: 0 auto;
+    margin: 0 auto;
+    font-family: 'Georgia', serif;
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+.articles-title {
+    font-size: 3rem;
+    margin: 1rem 0 1.5rem 0;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Цитата */
+.quote-text {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #500dfa;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-left: 4px solid #500dfa;
+    background-color: #f8f9fa;
+    text-align: right;
+}
+
+/* Основной текст */
+.articles-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    text-align: justify;
+    color: #444;
+}
+
+/* Изображения - добавлен object-fit для сохранения пропорций */
+.articles-image {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    object-fit: contain; /* Сохраняет пропорции изображения */
+}
+
+
+
+/* Список статей */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Элемент статьи - добавлены стили для подсветки при наведении */
+.article-item {
+    background: linear-gradient(135deg, #4086dcfe 0%, #1c3a5fbb 100%);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease; /* Плавная анимация изменений */
+    position: relative; /* Для позиционирования псевдоэлементов */
+    border: 1px solid #c7e7fc;
+
+    /* Внешняя тень для объема */
+    box-shadow: 0 2px 8px rgba(2, 117, 219, 0.1), 
+                inset 0 0 10px rgba(13, 4, 187, 0.3);
+}
+
+/* Эффекты при наведении на блок статьи */
+.article-item:hover {
+    background: linear-gradient(135deg, #5833bfc4 0%, #846fa8b7 100%);
+    transform: translateY(-3px);
+
+    /* Усиленная тень при наведении */
+    box-shadow: 0 4px 12px rgba(105, 6, 180, 0.15), 
+                inset 0 0 15px rgba(190, 6, 218, 0.4);
+    
+    /* Эффект свечения границы */
+    border: 1px solid #0a47d5;
+}
+
+/* Изображение статьи - сохранение пропорций */
+.article-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    object-fit: contain; /* Гарантирует сохранение пропорций */
+    aspect-ratio: 3/4; /* Соотношение сторон как у книги */
+}
+
+/* Увеличение изображения при наведении на блок */
+.article-item:hover .article-image {
+    transform: scale(1.03);
+}
+
+/* Стили для ссылок (кнопок статей) */
+.article-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 15px; /* Увеличено для большего размера кнопки */
+    border-radius: 4px;
+    font-size: 1.2rem; /* Увеличенный размер текста */
+    display: inline-block; /* Для правильного применения transform */
+}
+
+/* Эффекты при наведении на ссылку (кнопку) */
+.article-link:hover {
+    color: #ffffff;
+    background-color: #894aff;
+    text-shadow: 0 0 5px rgba(101, 12, 226, 0.704);
+    box-shadow: 0 2px 8px rgba(97, 64, 156, 0.4);
+    transform: scale(1); /* Увеличение кнопки */
+}
+
+/* Изменение текста при наведении на название статьи */
+.article-link:hover::after {
+    margin-left: 8px;
+}
+
+
+
+/* Финальная цитата */
+.final-quote {
+    border: 2px solid #4A90E2;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 8px;
+    background-color: #E8F5FD;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    max-width: 70%;
+    text-align: center;
+}
+
+.quote-author {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* ===== АДАПТИВНЫЕ СТИЛИ ===== */
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .articles-title {
+        font-size: 2.2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.5rem;
+        padding: 8px 12px;
+    }
+    
+    .articles-text {
+        font-size: 1.4rem;
+    }
+    
+    .final-quote {
+        font-size: 1.5rem;
+        padding: 12px;
+    }
+    
+    .quote-author {
+        font-size: 1.3rem;
+    }
+    
+    .article-link {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .article-image {
+        max-width: 200px;
+    }
+}
+
+/* Планшеты (768px-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .articles-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .articles-title {
+        font-size: 2.8rem;
+    }
+    
+    /* Горизонтальное расположение для планшетов */
+    .article-item {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .article-image {
+        width: 150px;
+        margin-bottom: 0;
+        margin-right: 15px;
+        flex-shrink: 0; /* Запрещаем уменьшение изображения */
+    }
+    
+    .article-link {
+        font-size: 1.3rem; /* Увеличенный размер текста на планшетах */
+    }
+}
+
+/* Десктопы (1024px+) */
+@media (min-width: 1024px) {
+    .articles-container {
+        max-width: 900px;
+        padding: 1.5rem;
+    }
+    
+    .articles-title {
+        font-size: 2.5rem;
+    }
+    
+    .articles-text {
+        font-size: 1.5rem;
+    }
+    
+    /* Горизонтальное расположение для десктопов */
+    .article-item {
+        flex-direction: row;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .article-image {
+        width: 180px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    
+    .article-link {
+        font-size: 1.4rem; /* Увеличенный размер текста на десктопах */
+        padding: 10px 20px; /* Большая кнопка */
+    }
+}

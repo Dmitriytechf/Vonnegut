@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Случайный факт о Воннегуте{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/fact.css' %}">
+
+<div class="fact-container">
+    <h1 class="fact-title">Случайный факт о Курте Воннегуте</h1>
+    
+    <div class="fact-content">
+        <p>{{ random_fact }}</p>
+    </div>
+    
+    <a href="{% url 'random_fact' %}" class="fact-link">Ещё один факт</a>
+</div>
+{% endblock %}

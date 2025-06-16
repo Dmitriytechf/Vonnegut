@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Статьи о Воннегуте{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+
+<div class="articles-container">
+    <h1 class="articles-title"><center>Статьи о Курте Воннегуте</center></h1>
+    
+    <p class="quote-text">
+        "Все пишут плохие книги. Почему мне нельзя?"
+    </p>
+
+    <p class="articles-text">
+        Один из гениев американской литературы – Курт Воннегут. Его лучшие книги описывают фантастические, 
+        порой полные трагизма ситуации, в которых автор умудряется найти место всепобеждающему смеху. 
+        Ознакомиться с анализом книг можно в наших статьях. 
+    </p>
+
+    <p class="quote-text">
+        "Мои книги – мозаика шуток о таких серьезных предметах, как смерть, болезни или война."
+    </p>
+
+    <p class="articles-text">
+        Один из гениев американской литературы – Курт Воннегут. Его лучшие книги описывают фантастические, 
+        порой полные трагизма ситуации, в которых автор умудряется найти место всепобеждающему смеху. 
+        Ознакомиться с анализом книг можно в наших статьях. 
+    </p>
+
+    <img src="{% static 'img/book.jpg' %}" alt="Курт Воннегут" class="articles-image">
+    
+    <p class="articles-text">
+        В своих произведениях Воннегут использовал элементы сатиры, 
+        чёрного юмора и научной фантастики. В каждой книге писатель 
+        исследовал парадоксальность мира, противоречивость человека и 
+        пути развития человечества.
+    </p>
+
+    <div class="articles-list">
+        <div class="article-item">
+            <img src="{% static 'img/article1.webp' %}" alt="Статья 1" class="article-image">
+            <a href="{% url 'article1' %}" class="article-link">Статья 1: Анализ "Бойни номер пять"</a>
+        </div>
+        
+        <div class="article-item">
+            <img src="{% static 'img/article2.webp' %}" alt="Статья 2" class="article-image">
+            <a href="{% url 'article2' %}" class="article-link">Статья 2: Философия "Колыбели для кошки"</a>
+        </div>
+        
+        <div class="article-item">
+            <img src="{% static 'img/article3.webp' %}" alt="Статья 3" class="article-image">
+            <a href="{% url 'article3' %}" class="article-link">Статья 3: Юмор в "Завтраке для чемпионов"</a>
+        </div>
+    </div>
+</div>
+
+<div class="final-quote">
+    <p>Я всегда знал, что я гений. Я просто не знал, в чём.</p>
+    <p class="quote-author">— Курт Воннегут</p>
+</div>
+
+{% endblock %}

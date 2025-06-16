@@ -1,0 +1,200 @@
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.vonnegut-container {
+    max-width: 100%;
+    padding: 0 auto;
+    margin: 0 auto;
+    font-family: 'Georgia', serif;
+    box-sizing: border-box;
+}
+
+.vonnegut-title {
+    font-size: 3rem;
+    margin: 1rem 0 1.5rem 0;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.vonnegut-text {
+    font-size: 1.7rem !important;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    text-align: justify;
+    color: #444;
+}
+
+/* Книги Воннегута */
+.vonnegut-booktitle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+    
+.vonnegut-book {
+    background-color: #b9f1f449;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgb(1, 206, 237);
+}
+    
+.book-list {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #157ee7;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+}
+    
+.book-list p {
+    font-size: 1.8rem;
+    margin: 8px 0;
+    transition: all 0.3s ease;
+}
+    
+.book-list p:hover {
+    color: #780deb;
+    transform: scale(1.02);
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.image-gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 20px;
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+}
+
+/* ===== КРАСИВЫЕ ССЫЛКИ ===== */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem 0 1rem 0;
+    gap: 1.2rem;
+}
+
+.custom-link {
+    display: inline-block;
+    padding: 2rem 3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.book-link{
+    background-color: #096acb;
+    color: rgb(255, 255, 255);
+    border: 2px solid #3900c9;
+    box-shadow: 0 4px 6px rgba(2, 119, 251, 0.2);
+}
+
+.articles-link {
+    background-color: #096acb;
+    color: rgb(255, 255, 255);
+    border: 2px solid #3900c9;
+    box-shadow: 0 4px 6px rgba(2, 119, 251, 0.2);
+}
+
+.fact-link {
+    background-color: #096acb;
+    color: rgb(255, 255, 255);
+    border: 2px solid #3900c9;
+    box-shadow: 0 4px 6px rgba(2, 119, 251, 0.2);
+}
+
+.custom-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.articles-link:hover {
+    background-color: #07d0fd;
+    border-color: #1264d6;
+}
+
+.fact-link:hover {
+    background-color: #07d0fd;
+    border-color: #1264d6;
+}
+
+.book-link:hover {
+    background-color: #07d0fd;
+    border-color: #1264d6;
+}
+
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .vonnegut-title {
+        font-size: 1.5rem;
+    }
+    
+    .vonnegut-text {
+        font-size: 1rem;
+    }
+    
+    .image-gallery {
+        margin: 1rem 0;
+    }
+}
+
+/* ===== ПЛАНШЕТЫ ===== */
+@media (min-width: 768px) {
+    .image-gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .gallery-img {
+        width: calc(50% - 10px); /* 2 колонки */
+    }
+}
+
+/* ===== ДЕСКТОПЫ ===== */
+@media (min-width: 1024px) {
+    .vonnegut-container {
+        max-width: 900px;
+        padding: 1.5rem;
+    }
+    
+    .gallery-img {
+        width: calc(33.33% - 15px); /* 3 колонки */
+    }
+    
+    .vonnegut-title {
+        font-size: 2rem;
+    }
+    
+    .vonnegut-text {
+        font-size: 1.2rem;
+    }
+}
