@@ -1,12 +1,15 @@
 import os
 from pathlib import Path
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+load_dotenv()
 
-SECRET_KEY = 'django-insecure-+#m!6_4by-pp_kt8m_5wb-lcm!&i680(n9#2&h3cw@_=x56d88' # Надо спрятать
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 DEBUG = True # Можно отключить дебаг панель 
@@ -16,7 +19,7 @@ ALLOWED_HOSTS = ['vonnegut.pythonanywhere.com', 'www.vonnegut.pythonanywhere.com
 
 
 INSTALLED_APPS = [
-    'jazzmin',
+    'jazzmin', # для красивой админки. при продакшене лучше
     
     'book_vonnegut.apps.BookVonnegutConfig',
     'article.apps.ArticleConfig',
@@ -28,7 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -39,7 +41,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 INTERNAL_IPS = [
@@ -111,6 +112,3 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK": lambda request: request.user.is_staff,
-}

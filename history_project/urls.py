@@ -10,8 +10,3 @@ urlpatterns = [
     path('article/', include('article.urls')),
     path('book/', include('book_vonnegut.urls')),
 ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        path("__debug__/", include("debug_toolbar.urls", namespace="djdt")),
-    ]
