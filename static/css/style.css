@@ -124,10 +124,15 @@ body {
 
 .fact-link {
     background-color: #096acb;
-    color: rgb(255, 255, 255);
-    border: 2px solid #3900c9;
-    box-shadow: 0 4px 6px rgba(2, 119, 251, 0.2);
+    color: white;
+    border: 2px solid #4a6fa5;
 }
+
+.fact-link:hover {
+    background-color: #3a5a8f;
+    transform: translateY(-2px);
+}
+
 
 .custom-link:hover {
     transform: translateY(-3px);

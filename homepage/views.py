@@ -14,13 +14,20 @@ class ProjectView(TemplateView):
 
 
 def random_fact_view(request):
-    all_facts = VonnegutFact.objects.all()
-    facts_list = list(all_facts)
+    '''Случайные факты про Воннегута'''
+    random_fact = VonnegutFact.objects.order_by('?').first()
     
-    random_fact = random.choice(facts_list)
+    # Инициализация или обновление счетчика в сессии
+    viewed_facts = request.session.get('viewed_facts', [])
+    
+    if random_fact and random_fact.id not in viewed_facts:
+        viewed_facts.append(random_fact.id)
+        request.session['viewed_facts'] = viewed_facts
+        
     context = {
         'random_fact': random_fact.text,
-        'total_facts': len(facts_list)
+        'total_facts': VonnegutFact.objects.count(),
+        'viewed_count': len(viewed_facts)
     }
     
     return render(request, 'homepage/random_fact.html', context)

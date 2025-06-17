@@ -73,6 +73,8 @@
     /* Внешняя тень для объема */
     box-shadow: 0 2px 8px rgba(2, 117, 219, 0.1), 
                 inset 0 0 10px rgba(13, 4, 187, 0.3);
+
+    overflow: hidden; /* Чтобы эффекты не выходили за границы */
 }
 
 /* Эффекты при наведении на блок статьи */
@@ -107,14 +109,18 @@
 
 /* Стили для ссылок (кнопок статей) */
 .article-link {
-    color: #333;
+    color: #051b3c;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
-    padding: 8px 15px; /* Увеличено для большего размера кнопки */
-    border-radius: 4px;
-    font-size: 1.2rem; /* Увеличенный размер текста */
-    display: inline-block; /* Для правильного применения transform */
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    display: inline-block;
+    background: linear-gradient(135deg, #0740a3c4 0%, #936fa8b7 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2; /* Чтобы кнопка была поверх других элементов */
 }
 
 /* Эффекты при наведении на ссылку (кнопку) */

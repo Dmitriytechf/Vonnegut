@@ -1,37 +1,164 @@
+/* Стили для страницы с фактами */
+.fact-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.fact-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #4a6fa5, #3a5a8f, #2c3e50);
+}
+
+
+/* Стили заголовка */
+.fact-title {
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.highlight-name {
+    color: #4a6fa5;
+    font-style: italic;
+}
+
+
+/* Стили для прогресс-бара */
+.progress-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.progress-count {
+    color: #4a6fa5;
+    font-weight: bold;
+}
+
+.progress-total {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4a6fa5, #3a5a8f);
+    transition: width 0.5s ease;
+}
+
+
+/* Стили блока с фактом */
+.fact-content {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    position: relative;
+    border-left: none;
+    box-shadow: inset 0 0 0 1px rgba(74, 111, 165, 0.2);
+}
+
+.fact-text {
+    margin: 0;
+    color: #333;
+    font-style: italic;
+}
+
+.quote-icon {
+    position: absolute;
+    font-size: 4rem;
+    color: rgba(74, 111, 165, 0.2);
+    font-family: 'Times New Roman', serif;
+}
+
+.quote-icon.left {
+    top: 0.5rem;
+    left: 1rem;
+}
+
+.quote-icon.right {
+    bottom: -1.5rem;
+    right: 1rem;
+}
+
+/* Стили кнопки */
 .fact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background-color: #4a6fa5;
     color: white;
-    border: 2px solid #4a6fa5;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .fact-link:hover {
     background-color: #3a5a8f;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Стили для страницы с фактами */
-.fact-container {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 2.5rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    text-align: center;
+.fact-link:active {
+    transform: translateY(-1px);
 }
 
-.fact-title {
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-.fact-content {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+.refresh-icon {
     font-size: 1.2rem;
-    line-height: 1.8;
-    border-left: 4px solid #4a6fa5;
+    transition: transform 0.5s ease;
+}
+
+.fact-link:hover .refresh-icon {
+    transform: rotate(180deg);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .fact-container {
+        padding: 2rem;
+        margin: 1.5rem;
+    }
+    
+    .fact-title {
+        font-size: 1.8rem;
+    }
+    
+    .fact-content {
+        padding: 1.5rem;
+    }
 }

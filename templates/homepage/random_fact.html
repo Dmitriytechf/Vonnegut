@@ -1,19 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Случайный факт о Воннегуте{% endblock %}
+{% block title %}Факт о Воннегуте{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-<link rel="stylesheet" href="{% static 'css/fact.css' %}">
+{# Мета-теги для предотвращения кеширования (чтобы всегда показывался новый факт) #}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
+{# Основная структура страницы #}
 <div class="fact-container">
-    <h1 class="fact-title">Случайный факт о Курте Воннегуте</h1>
+    <h1 class="fact-title">
+        <span class="highlight-name">Курт Воннегут</span>:<br>случайный факт
+    </h1>
     
-    <div class="fact-content">
-        <p>{{ random_fact }}</p>
+    {# Блок с прогрессом #}
+    <div class="progress-container">
+        <div class="progress-text">
+            Просмотрено: <span class="progress-count">{{ viewed_count }}</span> из 
+            <span class="progress-total">{{ total_facts }}</span> фактов
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" 
+                 style="width: {% widthratio viewed_count total_facts 100 %}%"></div>
+        </div>
     </div>
     
-    <a href="{% url 'random_fact' %}" class="fact-link">Ещё один факт</a>
+    <div class="fact-content">
+        <div class="quote-icon left">“</div>
+        <p class="fact-text">{{ random_fact }}</p>
+        <div class="quote-icon right">”</div>
+    </div>
+
+    <a href="{% url 'random_fact' %}" class="fact-link">
+        <span class="link-text">Другой факт</span>
+        <span class="refresh-icon">↻</span>
+    </a>
 </div>
+
+<link rel="stylesheet" href="{% static 'css/fact.css' %}">
 {% endblock %}
