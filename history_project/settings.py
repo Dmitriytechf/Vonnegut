@@ -7,14 +7,14 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-load_dotenv()
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 DEBUG = True # Можно отключить дебаг панель 
 
-ALLOWED_HOSTS = ['vonnegut.pythonanywhere.com', 'www.vonnegut.pythonanywhere.com', '127.0.0.1'] # Хосты сервера
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.88.23'] # Хосты сервера
 
 
 

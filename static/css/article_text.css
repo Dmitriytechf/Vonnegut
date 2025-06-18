@@ -1,24 +1,25 @@
-/* Базовые стили для всех устройств */
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
 .vonnegut-container {
     max-width: 100%;
-    margin: 1rem auto;
-    padding: 1rem;
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family: 'Georgia', serif;
     box-sizing: border-box;
 }
 
 .vonnegut-title {
-    font-size: 1.8rem; /* Размер по умолчанию для мобильных */
-    margin: 0.8rem 0 1rem 0;
+    font-size: 3rem;
+    margin: 1rem 0 1.5rem 0;
     text-align: center;
-    color: #154677;
+    color: #2c3e50;
     font-weight: 700;
-    line-height: 1.3;
+    letter-spacing: 0.5px;
 }
 
 .vonnegut-text {
-    font-size: 1.4rem; /* Размер по умолчанию для мобильных */
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
+    font-size: 1.7rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
     text-align: justify;
     color: #444;
 }
@@ -29,11 +30,15 @@
     margin: 1.5rem 0;
 }
 
-
 .centered-image {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.centered-image:hover {
+    transform: scale(1.03);
 }
 
 .image-overlay {
@@ -50,26 +55,46 @@
     font-size: 1.7rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: 8px;
 }
 
 .image-container:hover .image-overlay {
     opacity: 1;
 }
 
-/* Планшетная версия (минимум 768px) */
+/* ===== АДАПТИВНЫЕ СТИЛИ ===== */
+
+/* Мобильные устройства */
+@media (max-width: 767px) {
+    .vonnegut-title {
+        font-size: 1.2rem;
+    }
+    
+    .vonnegut-text {
+        font-size: 1rem;
+    }
+    
+    .image-overlay {
+        font-size: 1.5rem ;
+    }
+    
+    .image-container:hover .image-overlay {
+        opacity: 0.7;
+    }
+}
+
+/* Планшеты */
 @media (min-width: 768px) {
     .vonnegut-container {
         max-width: 90%;
-        padding: 1.5rem;
     }
     
     .vonnegut-title {
         font-size: 2rem;
-        margin: 1rem 0 1.2rem 0;
     }
     
     .vonnegut-text {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
     
     .image-overlay {
@@ -77,40 +102,30 @@
     }
 }
 
-/* Десктопная версия (минимум 1024px) */
+/* Десктопы */
 @media (min-width: 1024px) {
     .vonnegut-container {
         max-width: 900px;
-        padding: 2rem;
-        margin: 2rem auto;
+        padding: 1.5rem;
     }
     
     .vonnegut-title {
-        font-size: 2rem;
-        margin: 1rem 0 1.5rem 0;
-        letter-spacing: 0.5px;
+        font-size: 3rem;
     }
     
     .vonnegut-text {
-        font-size: 1.5rem;
-        line-height: 1.8;
-        margin: 0 0 1.5rem 0;
-    }
-    
-    .image-container {
-        margin: 2rem 0;
+        font-size: 1.7rem;
     }
     
     .image-overlay {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 }
 
 /* Гарантированная мобильная адаптация */
 @media (hover: none) and (pointer: coarse) {
-    /* Отключаем hover-эффекты для сенсорных устройств */
     .image-overlay {
-        opacity: 0.7 !important; /* Всегда немного видим оверлей */
+        opacity: 0.7 !important;
     }
     
     .image-container:hover .image-overlay {

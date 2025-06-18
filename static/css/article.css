@@ -1,4 +1,4 @@
-/* Основной контейнер статей */
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
 .articles-container {
     max-width: 100%;
     padding: 0 auto;
@@ -19,7 +19,7 @@
 
 /* Цитата */
 .quote-text {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-style: italic;
     color: #500dfa;
     padding: 10px 15px;
@@ -31,24 +31,22 @@
 
 /* Основной текст */
 .articles-text {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 1.8;
     margin: 0 0 1.5rem 0;
     text-align: justify;
     color: #444;
 }
 
-/* Изображения - добавлен object-fit для сохранения пропорций */
+/* Изображения */
 .articles-image {
     width: 100%;
     height: auto;
     margin: 15px 0;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    object-fit: contain; /* Сохраняет пропорции изображения */
+    object-fit: contain;
 }
-
-
 
 /* Список статей */
 .articles-list {
@@ -58,39 +56,29 @@
     margin-top: 30px;
 }
 
-/* Элемент статьи - добавлены стили для подсветки при наведении */
+/* Элемент статьи */
 .article-item {
     background: linear-gradient(135deg, #4086dcfe 0%, #1c3a5fbb 100%);
-    padding: 15px;
+    padding: 30px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease; /* Плавная анимация изменений */
-    position: relative; /* Для позиционирования псевдоэлементов */
+    transition: all 0.3s ease;
+    position: relative;
     border: 1px solid #c7e7fc;
-
-    /* Внешняя тень для объема */
-    box-shadow: 0 2px 8px rgba(2, 117, 219, 0.1), 
-                inset 0 0 10px rgba(13, 4, 187, 0.3);
-
-    overflow: hidden; /* Чтобы эффекты не выходили за границы */
+    box-shadow: 0 4px 8px rgba(1, 206, 237, 0.2);
+    overflow: hidden;
 }
 
-/* Эффекты при наведении на блок статьи */
 .article-item:hover {
     background: linear-gradient(135deg, #5833bfc4 0%, #846fa8b7 100%);
     transform: translateY(-3px);
-
-    /* Усиленная тень при наведении */
-    box-shadow: 0 4px 12px rgba(105, 6, 180, 0.15), 
-                inset 0 0 15px rgba(190, 6, 218, 0.4);
-    
-    /* Эффект свечения границы */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     border: 1px solid #0a47d5;
 }
 
-/* Изображение статьи - сохранение пропорций */
+/* Изображение статьи */
 .article-image {
     width: 100%;
     max-width: 250px;
@@ -98,16 +86,15 @@
     border-radius: 6px;
     margin-bottom: 10px;
     transition: transform 0.3s ease;
-    object-fit: contain; /* Гарантирует сохранение пропорций */
-    aspect-ratio: 3/4; /* Соотношение сторон как у книги */
+    object-fit: contain;
+    aspect-ratio: 3/4;
 }
 
-/* Увеличение изображения при наведении на блок */
 .article-item:hover .article-image {
     transform: scale(1.03);
 }
 
-/* Стили для ссылок (кнопок статей) */
+/* Стили для ссылок */
 .article-link {
     color: #051b3c;
     text-decoration: none;
@@ -115,32 +102,24 @@
     transition: all 0.3s ease;
     padding: 10px 20px;
     border-radius: 6px;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     display: inline-block;
     background: linear-gradient(135deg, #0740a3c4 0%, #936fa8b7 100%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 2; /* Чтобы кнопка была поверх других элементов */
+    z-index: 2;
 }
 
-/* Эффекты при наведении на ссылку (кнопку) */
 .article-link:hover {
     color: #ffffff;
     background-color: #894aff;
     text-shadow: 0 0 5px rgba(101, 12, 226, 0.704);
     box-shadow: 0 2px 8px rgba(97, 64, 156, 0.4);
-    transform: scale(1); /* Увеличение кнопки */
 }
-
-/* Изменение текста при наведении на название статьи */
-.article-link:hover::after {
-    margin-left: 8px;
-}
-
-
 
 /* Финальная цитата */
 .final-quote {
+    font-size: 1.7rem;
     border: 2px solid #4A90E2;
     padding: 10px;
     margin: 10px auto;
@@ -148,7 +127,6 @@
     background-color: #E8F5FD;
     font-style: italic;
     font-family: 'Georgia', serif;
-    font-size: 1.5rem;
     max-width: 70%;
     text-align: center;
 }
@@ -158,38 +136,31 @@
     text-align: center;
     margin-top: 10px;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 /* ===== АДАПТИВНЫЕ СТИЛИ ===== */
 
 /* Мобильные устройства */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .articles-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
-    .quote-text {
-        font-size: 1.5rem;
-        padding: 8px 12px;
-    }
-    
-    .articles-text {
-        font-size: 1.4rem;
-    }
-    
-    .final-quote {
-        font-size: 1.5rem;
-        padding: 12px;
-    }
-    
+    .quote-text,
+    .articles-text,
+    .final-quote,
     .quote-author {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     
     .article-link {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .article-item {
+        padding: 15px;
     }
     
     .article-image {
@@ -197,18 +168,19 @@
     }
 }
 
-/* Планшеты (768px-1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .articles-container {
-        max-width: 90%;
-        padding: 20px;
-    }
-    
+/* Планшеты */
+@media (min-width: 768px) {
     .articles-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
     }
     
-    /* Горизонтальное расположение для планшетов */
+    .quote-text,
+    .articles-text,
+    .final-quote,
+    .quote-author {
+        font-size: 1.2rem;
+    }
+    
     .article-item {
         flex-direction: row;
         align-items: center;
@@ -216,17 +188,16 @@
     
     .article-image {
         width: 150px;
-        margin-bottom: 0;
         margin-right: 15px;
-        flex-shrink: 0; /* Запрещаем уменьшение изображения */
+        margin-bottom: 0;
     }
     
     .article-link {
-        font-size: 1.3rem; /* Увеличенный размер текста на планшетах */
+        font-size: 1.3rem;
     }
 }
 
-/* Десктопы (1024px+) */
+/* Десктопы */
 @media (min-width: 1024px) {
     .articles-container {
         max-width: 900px;
@@ -234,28 +205,26 @@
     }
     
     .articles-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
-    .articles-text {
-        font-size: 1.5rem;
+    .quote-text,
+    .articles-text,
+    .final-quote,
+    .quote-author {
+        font-size: 1.7rem;
     }
     
-    /* Горизонтальное расположение для десктопов */
     .article-item {
-        flex-direction: row;
-        align-items: center;
-        padding: 20px;
+        padding: 30px;
     }
     
     .article-image {
         width: 180px;
         margin-right: 20px;
-        margin-bottom: 0;
     }
     
     .article-link {
-        font-size: 1.4rem; /* Увеличенный размер текста на десктопах */
-        padding: 10px 20px; /* Большая кнопка */
+        font-size: 1.8rem;
     }
 }

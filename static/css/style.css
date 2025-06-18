@@ -17,7 +17,7 @@ body {
 }
 
 .vonnegut-title {
-    font-size: 3rem;
+    font-size: 3rem !important;
     margin: 1rem 0 1.5rem 0;
     text-align: center;
     color: #2c3e50;
@@ -54,16 +54,22 @@ body {
     line-height: 1.8;
 }
     
-.book-list p {
+/* Стили для ссылок вместо <p> */
+.book-list a {
+    display: inline-block; /* или block, если нужно на всю ширину */
     font-size: 1.8rem;
     margin: 8px 0;
+    color: inherit; /* Наследует цвет от .book-list */
+    text-decoration: none; /* Убираем подчёркивание */
     transition: all 0.3s ease;
 }
     
-.book-list p:hover {
+.book-list a:hover {
     color: #780deb;
     transform: scale(1.02);
 }
+/* конец блока */
+
 
 /* ===== ГАЛЕРЕЯ ===== */
 .image-gallery {
@@ -85,6 +91,49 @@ body {
     transform: scale(1.03);
 }
 
+
+/* ===== Картинки на сайте ===== */
+/* Контейнер для центрирования */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+/* Обертка для изображения и подписи */
+.centered-image {
+    text-align: center;
+    max-width: 800px; /* Максимальная ширина блока */
+    width: 100%;
+}
+
+/* Стили для самого изображения */
+.styled-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.styled-image:hover {
+    transform: scale(1.02);
+}
+
+/* Стили для подписи */
+.image-caption {
+    font-size: 1.4rem;
+    color: #555;
+    font-style: italic;
+    background-color: #91bfec;
+    border-radius: 4px;
+}
+
+
+
 /* ===== КРАСИВЫЕ ССЫЛКИ ===== */
 .links-container {
     display: flex;
@@ -96,14 +145,14 @@ body {
 
 .custom-link {
     display: inline-block;
-    padding: 2rem 3rem;
+    padding: 4rem 3rem;
     font-size: 1.5rem;
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 850px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -155,20 +204,35 @@ body {
 }
 
 @media (max-width: 767px) {
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-    
     .vonnegut-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem !important;
     }
     
     .vonnegut-text {
-        font-size: 1rem;
+        font-size: 1rem !important;
     }
     
     .image-gallery {
         margin: 1rem 0;
+    }
+
+    .custom-link {
+        padding: 1rem 1.5rem; /* Уменьшенные отступы для мобильных */
+        font-size: 1.2rem; /* Уменьшенный размер шрифта для мобильных */
+    }
+    
+    .links-container {
+        gap: 0.8rem; /* Уменьшенный промежуток между кнопками */
+        margin: 1.5rem 0 0.5rem 0; /* Уменьшенные внешние отступы */
+    }
+
+    .image-container {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+    
+    .image-caption {
+        font-size: 0.9rem;
     }
 }
 
@@ -188,7 +252,7 @@ body {
 @media (min-width: 1024px) {
     .vonnegut-container {
         max-width: 900px;
-        padding: 1.5rem;
+        padding: 1.5rem !;
     }
     
     .gallery-img {
