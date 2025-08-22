@@ -4,40 +4,140 @@
 {% block title %}Факт о Воннегуте{% endblock %}
 
 {% block content %}
-{# Мета-теги для предотвращения кеширования (чтобы всегда показывался новый факт) #}
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<div class="container mt-3 ">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            {# Заголовок #}
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body p-4">
+                    <div class="text-center mb-3">
+                        <h1 class="display-6 fw-bold text-primary mb-3">
+                            Курт Воннегут:<br>
+                            <span class="text-dark">случайный факт</span>
+                        </h1>
+                    </div>
+                    
+                        {# Прогресс-бар #}
+                        <div class="card-body text-center pb-1">
+                            <div class="justify-content-between align-items-center mb-2">
+                                <span class="text-muted fs-5">
+                                    Просмотрено: 
+                                    <span class="progress-count fw-bold text-dark">{{ viewed_count }}</span> из 
+                                    <span class="progress-total fw-bold text-dark">{{ total_facts }}</span> фактов
+                                </span>
+                            </div>
+                            <div class="progress position-relative" style="height: 17px;">
+                                <div class="progress-bar progress-fill bg-success" 
+                                    role="progressbar" 
+                                    style="width: {% widthratio viewed_count total_facts 100 %}%"
+                                    aria-valuenow="{{ viewed_count }}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="{{ total_facts }}">
+                                </div>
+                            </div>
+                        </div>
 
-{# Основная структура страницы #}
-<div class="fact-container">
-    <h1 class="fact-title">
-        <span class="highlight-name">Курт Воннегут</span>:<br>случайный факт
-    </h1>
-    
-    {# Блок с прогрессом #}
-    <div class="progress-container">
-        <div class="progress-text">
-            Просмотрено: <span class="progress-count">{{ viewed_count }}</span> из 
-            <span class="progress-total">{{ total_facts }}</span> фактов
-        </div>
-        <div class="progress-bar">
-            <div class="progress-fill" 
-                 style="width: {% widthratio viewed_count total_facts 100 %}%"></div>
+                        {# Блок с фактами #}
+                        <div class="card-body text-center py-3">
+                            <div class="fact-content">
+                                <p class="lead fact-text" id="fact-text" style="font-size: 1.25rem; line-height: 1.6;">
+                                    {{ random_fact }}
+                                </p>
+                            </div>
+                        </div>
+
+                    {# Кнопка для нового факта #}
+                    <div class="text-center">
+                        <button id="new-fact-btn" class="btn btn-primary btn-lg px-4">
+                            <i class="bi bi-arrow-clockwise me-2"></i>
+                            Другой факт
+                        </button>
+                        <small class="d-block text-muted mt-2">Нажмите на пробел*</small>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <div class="fact-content">
-        <div class="quote-icon left">“</div>
-        <p class="fact-text">{{ random_fact }}</p>
-        <div class="quote-icon right">”</div>
-    </div>
-
-    <a href="{% url 'random_fact' %}" class="fact-link">
-        <span class="link-text">Другой факт</span>
-        <span class="refresh-icon">↻</span>
-    </a>
 </div>
 
-<link rel="stylesheet" href="{% static 'css/fact.css' %}">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const factText = document.getElementById('fact-text');
+    const progressCount = document.querySelector('.progress-count');
+    const progressTotal = document.querySelector('.progress-total');
+    const progressFill = document.querySelector('.progress-fill');
+    const newFactBtn = document.getElementById('new-fact-btn');
+
+    // Добавляем спиннер загрузки
+    function showLoading(){
+        factText.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Загрузка...</span></div><p class="text-muted mt-2">Загрузка факта...</p></div>';
+        newFactBtn.disabled = true;
+        newFactBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Загрузка...';
+    }
+
+    function hideLoading(){
+        newFactBtn.disabled = false;
+        newFactBtn.innerHTML = '<i class="bi bi-arrow-clockwise me-2"></i>Другой факт';
+    }
+
+    function getNewFact(){
+        showLoading()
+    
+        fetch('{% url "random_fact_api" %}', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'same-origin'
+        })
+        .then(response => {
+            if(!response.ok){
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Обновляем текст факта
+            factText.textContent = data.fact_text;
+
+            // Обновляем счетчики прогресса
+            progressCount.textContent = data.viewed_count;
+            progressTotal.textContent = data.total_facts;
+
+            // Обновляем прогресс-бар
+            progressFill.style.width = data.progress_percentage + '%';
+            progressFill.setAttribute('aria-valuenow', data.viewed_count);
+            progressFill.textContent = data.progress_percentage + '%';
+
+            hideLoading();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            factText.innerHTML = '<div class="alert alert-danger">Ошибка загрузки факта. Попробуйте еще раз.</div>';
+            hideLoading();
+        });
+    }
+
+    // Обработчик клика на кнопку
+    newFactBtn.addEventListener('click', getNewFact);
+
+    // Добавляем обработчик для клавиши пробела
+    document.addEventListener('keydown', function(event){
+        if (event.code === 'Space' && !newFactBtn.disabled) {
+            event.preventDefault();
+            getNewFact();
+        }
+    });
+
+    // Обработчик сброса прогресса(пока не доделан)
+    document.getElementById('reset-progress-btn').addEventListener('click', function(){
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+    });
+
+    // Фокусируем кнопку для удобства использования клавиатуры
+    newFactBtn.focus();
+})
+</script>
+
 {% endblock %}

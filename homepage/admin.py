@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import VonnegutFact
+
 
 @admin.register(VonnegutFact)
 class VonnegutFactAdmin(admin.ModelAdmin):

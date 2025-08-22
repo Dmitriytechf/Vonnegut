@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 — Страница не найдена</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        
+        .error-container {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .error-code {
+            font-size: 100px;
+            font-weight: bold;
+            color:rgb(0, 136, 255); /* Синий цвет */
+            margin: 0;
+        }
+        
+        .error-message {
+            font-size: 74px;
+            color:rgb(0, 136, 255);
+        }
+        
+        .fullscreen-image {
+            max-width: 95%;
+            max-height: 90vh; /* Увеличиваем изображение */
+            object-fit: contain;
+        }
+        
+        .home-link {
+            font-size: 74px; /* Увеличиваем текст */
+            color: #007bff; /* Синий цвет */
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        .home-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="{% static 'img/vonnegut404.png' %}" alt="Ошибка 404" class="fullscreen-image">
+
+    <div class="error-container">
+        <div class="error-code">Ошибка 404</div>
+    </div>
+    <div class="error-container">
+        <a href="{% url 'home' %}" class="home-link">Такие дела</a>
+    </div>
+</body>
+</html>

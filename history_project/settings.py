@@ -1,26 +1,23 @@
 import os
 from pathlib import Path
-from pathlib import Path
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(os.path.join(BASE_DIR, '.env')) # Прямое указание пути с корневой диерктории 
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-DEBUG = True # Можно отключить дебаг панель 
+DEBUG = True   # Можно отключить дебаг панель 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.88.23'] # Хосты сервера
+ALLOWED_HOSTS = ['*'] # Хосты сервера
 
 
 
 INSTALLED_APPS = [
-    'jazzmin', # для красивой админки. при продакшене лучше
-    
     'book_vonnegut.apps.BookVonnegutConfig',
     'article.apps.ArticleConfig',
     'homepage.apps.HomepageConfig',
@@ -93,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -111,4 +108,3 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

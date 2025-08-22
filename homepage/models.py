@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class  VonnegutFact(models.Model):
     text = models.TextField(verbose_name="Текст факта")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
