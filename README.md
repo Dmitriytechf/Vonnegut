@@ -24,9 +24,9 @@
 
 ## Главная страница
 <img width="1496" height="931" alt="image" src="https://github.com/user-attachments/assets/0672d150-d59a-42ee-a11a-fa5717f3fa78" />
-<img width="950" height="872" alt="image" src="https://github.com/user-attachments/assets/6f660d69-dacc-4273-8d00-1cf39e58603f" />
+<img width="1452" height="880" alt="image" src="https://github.com/user-attachments/assets/74e40cf0-2724-4463-b634-1bda99638da4" />
 <img width="1225" height="922" alt="image" src="https://github.com/user-attachments/assets/28b54c4f-64a1-49b3-b7ac-aeacc541c3a1" />
-<img width="696" height="938" alt="image" src="https://github.com/user-attachments/assets/84044ce4-66b5-47c0-ac5b-f13f37373e20" />
+<img width="1608" height="918" alt="image" src="https://github.com/user-attachments/assets/d52105de-ae41-4495-8b03-85dd59a07bee" />
 
 ## Страница фактов
 <img width="1246" height="937" alt="image" src="https://github.com/user-attachments/assets/5dcc8b9c-4736-4198-8661-78e47edfa319" />
@@ -66,4 +66,5 @@ python manage.py runserver
 
 ## 👨‍💻 Автор
 [Дмитрий] - [https://github.com/Dmitriytechf]
+
 
